@@ -11,6 +11,7 @@ This app combines:
 ---
 
 ## System Requirements
+The app is for development deployment, so you have to run it on Local systems. (I'll add steps for production deployment to be able to run on cloud servers)
 * Local Linux PC
 * Setting up Ubuntu via WSL on Windows using this [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
 
