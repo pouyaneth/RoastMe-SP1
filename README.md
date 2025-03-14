@@ -9,6 +9,10 @@ This app combines:
 - **Node.js**: Manages the backend for proof generation.
 
 ## Prerequisites
+**Important:**
+* After running each of these commands, follow the on-screen prompts to complete the installation.
+* For example: In my enviorment, after installing one of them, it asks me to enter `source /$HOME/.bashrc` to verify the installation.
+
 1. Python
 ```bash
 sudo apt install python3 python3-pip
@@ -16,8 +20,13 @@ sudo apt install python3 python3-pip
 
 2. Node.js and npm
 ```bash
-sudo apt update
-sudo apt install nodejs npm
+sudo apt-get update
+
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+
+node -v
+npm -v
 ```
 
 3. Rust and Cargo
@@ -29,8 +38,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```bash
 curl -L https://sp1up.succinct.xyz | bash
 ```
-* After running this command, follow the on-screen prompts to complete the installation.
-* For example: In my enviorment it asks me to enter the following command:
 ```
 source /$HOME/.bashrc
 ```
@@ -122,6 +129,3 @@ Open your browser and navigate to `http://localhost:5000`.
   - The proof confirms your name was processed (roasted) without revealing the roast content.
   - The proof result, including a hash, will appear below the roast.
   - The script generates and verifies the proof, saving it to `roast_proof.bin` in `RoastMe-SP1/roast-proof/script` directory
-
-
-
