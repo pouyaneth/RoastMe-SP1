@@ -1,0 +1,15 @@
+[package]
+name = "roast-proof-script"
+version = "0.1.0"
+edition = "2021"
+default-run = "roast_prove"
+
+[[bin]]
+name = "roast_prove"
+path = "src/bin/roast_prove.rs"
+
+[dependencies]
+sp1-sdk = "4.0.0"
+
+[build-dependencies]
+sp1-build = "4.0.0"

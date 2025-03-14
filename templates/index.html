@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roast Me</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='24'>🍗</text></svg>">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            color: #007bff;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.8), 0 0 20px rgba(0, 123, 255, 0.6);
+            margin-bottom: 20px;
+            cursor: pointer; /* Make it look clickable */
+        }
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .input-box {
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: #f0f0f0;
+            width: 200px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .button-33 {
+            background-color: #ff69b4; /* Pink color for Prove (SP1) button */
+            border-radius: 100px;
+            box-shadow: rgba(255, 105, 180, .2) 0 -25px 18px -14px inset, rgba(255, 105, 180, .15) 0 1px 2px, rgba(255, 105, 180, .15) 0 2px 4px, rgba(255, 105, 180, .15) 0 4px 8px, rgba(255, 105, 180, .15) 0 8px 16px, rgba(255, 105, 180, .15) 0 16px 32px;
+            color: white;
+            cursor: pointer;
+            padding: 7px 20px;
+            font-size: 16px;
+            border: 0;
+            transition: all 250ms;
+        }
+        .button-33:hover {
+            box-shadow: rgba(255, 105, 180, .35) 0 -25px 18px -14px inset, rgba(255, 105, 180, .25) 0 1px 2px, rgba(255, 105, 180, .25) 0 2px 4px, rgba(255, 105, 180, .25) 0 4px 8px, rgba(255, 105, 180, .25) 0 8px 16px, rgba(255, 105, 180, .25) 0 16px 32px;
+            transform: scale(1.05) rotate(-1deg);
+        }
+        .roast-output {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        }
+        .disclaimer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+            display: none; /* Hidden until roast is generated */
+        }
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+            color: #007bff;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.8), 0 0 20px rgba(0, 123, 255, 0.6);
+        }
+        .pink-text {
+            color: #ff69b4; /* Pink color for SuccinctLabs */
+        }
+        #loading {
+            display: none;
+            margin-top: 20px;
+        }
+        #prove-button {
+            display: none;
+            margin-top: 10px;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal-content h2 {
+            color: #ff69b4; /* Pink heading for popup */
+        }
+        .modal-content p {
+            margin: 10px 0;
+        }
+        .modal-content button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 onclick="resetPage()">🍗 Roast Me</h1>
+        <p>Enter your name and get roasted!</p>
+        <div class="input-container">
+            <input type="text" id="name" class="input-box" placeholder="Enter your name">
+            <button class="button-33" onclick="getRoast()">🔥 Roast me</button>
+        </div>
+        <div id="loading">
+            <img src="/static/hyperbolic.gif" alt="Loading" width="100">
+        </div>
+        <p id="disclaimer" class="disclaimer">You got ROASTED by Hyperbolic but better to prove your roasted corpse by Succinct!</p>
+    </div>
+    <div class="footer">
+        Created by Moei ♥ | Powered by Hyperbolic & <span class="pink-text">SuccinctLabs</span>
+    </div>
+
+    <!-- Modal for proof result -->
+    <div id="proofModal" class="modal">
+        <div class="modal-content">
+            <h2>Your ROASTED corpse is Proved!</h2>
+            <p><strong>Proof Hash:</strong> <span id="proofHash"></span></p>
+            <button onclick="shareOnTwitter()">Share</button>
+            <button onclick="resetPage()">Roast Again!</button>
+        </div>
+    </div>
+
+    <script>
+        let currentName = '';
+        let currentRoast = '';
+
+        function resetPage() {
+            location.reload(); // Reloads the page to reset to initial state
+        }
+
+        async function getRoast() {
+            const name = document.getElementById('name').value;
+            if (!name) {
+                alert('Please enter your name');
+                return;
+            }
+
+            const button = document.querySelector('.button-33');
+            button.innerText = '🔥 Roasting...';
+            button.disabled = true;
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+
+            try {
+                const response = await fetch('/roast', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+                const data = await response.json();
+
+                const existingRoast = document.getElementById('roast');
+                if (existingRoast) existingRoast.remove();
+
+                const roastDiv = document.createElement('div');
+                roastDiv.id = 'roast';
+                roastDiv.className = 'roast-output';
+                if (data.error) {
+                    roastDiv.innerText = data.error;
+                } else {
+                    roastDiv.innerHTML = `<strong>${data.personality}</strong><br>${data.roast}`;
+                    currentName = name;
+                    currentRoast = data.roast;
+
+                    // Show disclaimer and prove button below roast
+                    const disclaimer = document.getElementById('disclaimer');
+                    disclaimer.style.display = 'block';
+
+                    const proveButton = document.getElementById('prove-button') || document.createElement('button');
+                    proveButton.id = 'prove-button';
+                    proveButton.className = 'button-33';
+                    proveButton.innerText = 'Prove (SP1)';
+                    proveButton.onclick = generateProof;
+                    proveButton.style.display = 'block';
+
+                    // Append roast, disclaimer, and prove button in order
+                    const container = document.querySelector('.container');
+                    container.appendChild(roastDiv);
+                    container.appendChild(disclaimer);
+                    container.appendChild(proveButton);
+                }
+            } catch (error) {
+                const roastDiv = document.createElement('div');
+                roastDiv.id = 'roast';
+                roastDiv.className = 'roast-output';
+                roastDiv.innerText = 'An error occurred. Please try again.';
+                document.querySelector('.container').appendChild(roastDiv);
+            } finally {
+                loading.style.display = 'none';
+                button.innerText = '🔥 Roast me';
+                button.disabled = false;
+            }
+        }
+
+        async function generateProof() {
+            if (!currentName || !currentRoast) {
+                alert('No roast to prove');
+                return;
+            }
+
+            const proveButton = document.getElementById('prove-button');
+            proveButton.innerText = 'Proving...';
+            proveButton.disabled = true;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/generate-proof', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: currentName })
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    const proofHash = data.proofHash;
+                    document.getElementById('proofHash').innerText = proofHash;
+                    document.getElementById('proofModal').style.display = 'flex';
+                } else {
+                    alert('Failed to generate proof: ' + data.error);
+                }
+            } catch (error) {
+                alert('Failed to generate proof');
+            } finally {
+                proveButton.innerText = 'Prove (SP1)';
+                proveButton.disabled = false;
+            }
+        }
+
+        function shareOnTwitter() {
+            const tweetText = encodeURIComponent("I've Roasted myself by @hyperbolic_labs and Proved my roasted corpse on @SuccinctLabs SP1 using @0xMoei's app: https://github.com/0xmoei/RoastMe-SP1");
+            window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, '_blank');
+        }
+    </script>
+</body>
+</html>
