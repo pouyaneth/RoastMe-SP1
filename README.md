@@ -11,21 +11,20 @@ This app combines:
 ---
 
 ## System Requirements
-Generating proofs requires a good machine with good RAM. You can consider:
+* Local Linux PC
 * Setting up Ubuntu via WSL on Windows using this [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
-* Using a VPS
 
 ---
 
 ## Prerequisites
-The proof generation might need a good pc resources, You can use a VPS server to  install it or install Ubuntu via WSL using this [guide](https://github.com/0xmoei/Install-Linux-on-Windows) on your windows
 **Important:**
 * After running each of these commands, follow the on-screen prompts to complete the installation.
 * For example: In my enviorment, after installing one of them, it asks me to enter `source /root/.bashrc` to verify the installation.
 
 **1. Python**
 ```bash
-sudo apt install python3 python3-pip
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3 python3-pip python3-venv -y
 ```
 
 **2. Node.js and npm**
@@ -91,63 +90,65 @@ rustup toolchain list
 ## Configure the Rust Toolchain
 Navigate to the `roast_proof` directory and set the appropriate Rust toolchain:
 ```bash
-cd roast_proof
+cd ~/RoastMe-SP1/roast_proof
 rustup override set succinct
-cd ..
 ```
 
 ---
 
 ## Installing Dependencies
-### Python Dependencies
-Install the required Python packages for the Flask app:
-```bash
-pip install -r requirements.txt
-```
-
----
-
 ### Node.js Dependencies
 Install the backend dependencies:
 ```bash 
-cd backend
+cd ~/RoastMe-SP1/backend
 npm install
-cd ..
 ```
-
----
 
 ### Rust Dependencies
 Build the Rust proof generation script:
 ```bash
-cd roast_proof/script
+cd ~/RoastMe-SP1/roast_proof/script
 cargo build --release
-cd ../..
 ```
 
 ---
 
 ## Running the Application
-Launch the Flask web frontend:
-```bash
-python3 app.py
 ```
-This runs on `http://localhost:5000` or `http://vps-ip:5000` by default.
+cd ~/RoastMe-SP1
+```
+
+1. Create and activate a virtual environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+2. Install Dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Run the app (while in the virtual environment)
+```bash
+python app.py
+```
+* Open your browser and navigate to `http://localhost:5000`
 
 ---
 
 ## Start the Node.js Backend
 Open a new terminal, and launch the Node.js backend:
 ```bash
-cd backend
+cd ~/RoastMe-SP1/backend
 node server.js
 ```
-This should run on `http://localhost:3000` or `http://vps-ip:5000`.
+* This should run on `http://localhost:3000`.
 
 ---
 
 ## Access the App
-Open your browser and navigate to `http://localhost:5000` or `http://vps-ip:5000`.
+Open your browser and navigate to `http://localhost:5000`.
 
 ---
 
