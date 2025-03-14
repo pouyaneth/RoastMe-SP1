@@ -43,7 +43,10 @@ npm -v
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
-It asks you to enter a command to add `cargo` to your `shell`. In my environment, it was: `. "$HOME/.cargo/env"`
+It asks you to enter a command to add `cargo` to your `shell`. In my environment, it was:
+```bash
+. "$HOME/.cargo/env"
+```
 
 **4. Sp1 Toolchain(`succinct`)**
 ```bash
