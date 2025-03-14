@@ -54,7 +54,7 @@ cd RoastMe-SP1
 ## Hyperbolic API Key
 The `app.py` file includes a placeholder API key for Hyperbolic. To use your own:
 1. Sign up at [Hyperbolic](https://app.hyperbolic.xyz/) and get your **API key** in **Setting**.
-2. Replace the `API_KEY` value in `app.py` directly using:
+2. Replace the `HYPERBOLIC_API_KEY` value in `app.py` directly using:
 ```bash
 nano app.py
 ```
