@@ -170,9 +170,8 @@ Open your browser and navigate to `http://localhost:5000`.
 ---
 
 ## Errors
-1- Cargo
 ```
 SP1 output: 
 SP1 errors: /bin/sh: 1: cargo: not found
 ```
-Enter `. "$HOME/.cargo/env"` before `9) Start Proof Generator (Backend)`
+* Enter `. "$HOME/.cargo/env"` before `9) Start Proof Generator (Backend)`
