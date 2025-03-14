@@ -132,7 +132,7 @@ pip install -r requirements.txt
 
 3. Run the app (while in the virtual environment)
 ```bash
-python app.py
+python3 app.py
 ```
 * Open your browser and navigate to `http://localhost:5000`
 
