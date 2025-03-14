@@ -48,18 +48,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . "$HOME/.cargo/env"
 ```
 
-**4. Sp1 Toolchain(`succinct`)**
-```bash
-curl -L https://sp1up.succinct.xyz | bash
-```
-* After entering the command, follow the new prompts to enter the neccessery command!
-```
-source /root/.bashrc
-```
-```
-sp1up
-```
-
 ---
 
 ## Clone Repository
@@ -85,8 +73,18 @@ nano app.py
 The app uses Succinct's SP1 zkVM for zero-knowledge proofs. Install it with:
 ```bash
 curl -L https://sp1up.succinct.xyz | bash
+```
+* After entering the command, follow the new prompts to enter the neccessery command!
+```bash
+source /root/.bashrc
+```
+```bash
 sp1up
 ```
+```bash
+rustup toolchain list
+```
+* You have to see `succinct` as a toolchain in the list!
 
 ---
 
