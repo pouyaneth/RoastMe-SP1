@@ -21,7 +21,7 @@ Generating proofs requires a good machine with good RAM. You can consider:
 The proof generation might need a good pc resources, You can use a VPS server to  install it or install Ubuntu via WSL using this [guide](https://github.com/0xmoei/Install-Linux-on-Windows) on your windows
 **Important:**
 * After running each of these commands, follow the on-screen prompts to complete the installation.
-* For example: In my enviorment, after installing one of them, it asks me to enter `source /$HOME/.bashrc` to verify the installation.
+* For example: In my enviorment, after installing one of them, it asks me to enter `source /root/.bashrc` to verify the installation.
 
 **1. Python**
 ```bash
@@ -43,7 +43,7 @@ npm -v
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
-It asks you to enter a command to add `cargo` to your `shell`. In my environment, it was:
+* It asks you to enter a command to add `cargo` to your `shell`. In my environment, it was:
 ```bash
 . "$HOME/.cargo/env"
 ```
@@ -52,8 +52,9 @@ It asks you to enter a command to add `cargo` to your `shell`. In my environment
 ```bash
 curl -L https://sp1up.succinct.xyz | bash
 ```
+* After entering the command, follow the new prompts to enter the neccessery command!
 ```
-source /$HOME/.bashrc
+source /root/.bashrc
 ```
 ```
 sp1up
