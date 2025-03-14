@@ -8,17 +8,27 @@ This app combines:
 - **Flask**: Powers the web frontend.
 - **Node.js**: Manages the backend for proof generation.
 
+---
+
+## System Requirements
+Generating proofs requires a good machine with good RAM. You can consider:
+* Setting up Ubuntu via WSL on Windows using this [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
+* Using a VPS
+
+---
+
 ## Prerequisites
+The proof generation might need a good pc resources, You can use a VPS server to  install it or install Ubuntu via WSL using this [guide](https://github.com/0xmoei/Install-Linux-on-Windows) on your windows
 **Important:**
 * After running each of these commands, follow the on-screen prompts to complete the installation.
 * For example: In my enviorment, after installing one of them, it asks me to enter `source /$HOME/.bashrc` to verify the installation.
 
-1. Python
+**1. Python**
 ```bash
 sudo apt install python3 python3-pip
 ```
 
-2. Node.js and npm
+**2. Node.js and npm**
 ```bash
 sudo apt-get update
 
@@ -29,12 +39,12 @@ node -v
 npm -v
 ```
 
-3. Rust and Cargo
+**3. Rust and Cargo**
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-4. Sp1 Toolchain(`succinct`)
+**4. Sp1 Toolchain(`succinct`)**
 ```bash
 curl -L https://sp1up.succinct.xyz | bash
 ```
@@ -45,11 +55,15 @@ source /$HOME/.bashrc
 sp1up
 ```
 
+---
+
 ## Clone Repository
 ```bash
 git clone https://github.com/0xmoei/RoastMe-SP1.git
 cd RoastMe-SP1
 ```
+
+---
 
 ## Hyperbolic API Key
 The `app.py` file includes a placeholder API key for Hyperbolic. To use your own:
@@ -59,7 +73,7 @@ The `app.py` file includes a placeholder API key for Hyperbolic. To use your own
 nano app.py
 ```
 
-
+---
 
 ## Setting Up the Environment
 ### Install the SP1 Toolchain
@@ -69,6 +83,8 @@ curl -L https://sp1up.succinct.xyz | bash
 sp1up
 ```
 
+---
+
 ## Configure the Rust Toolchain
 Navigate to the `roast_proof` directory and set the appropriate Rust toolchain:
 ```bash
@@ -77,12 +93,16 @@ rustup override set succinct
 cd ..
 ```
 
+---
+
 ## Installing Dependencies
 ### Python Dependencies
 Install the required Python packages for the Flask app:
 ```bash
 pip install -r requirements.txt
 ```
+
+---
 
 ### Node.js Dependencies
 Install the backend dependencies:
@@ -92,6 +112,8 @@ npm install
 cd ..
 ```
 
+---
+
 ### Rust Dependencies
 Build the Rust proof generation script:
 ```bash
@@ -100,12 +122,16 @@ cargo build --release
 cd ../..
 ```
 
+---
+
 ## Running the Application
 Launch the Flask web frontend:
 ```bash
 python3 app.py
 ```
-This runs on `http://localhost:5000` by default.
+This runs on `http://localhost:5000` or `http://vps-ip:5000` by default.
+
+---
 
 ## Start the Node.js Backend
 Open a new terminal, and launch the Node.js backend:
@@ -113,11 +139,14 @@ Open a new terminal, and launch the Node.js backend:
 cd backend
 node server.js
 ```
-This should run on `http://localhost:3000`.
+This should run on `http://localhost:3000` or `http://vps-ip:5000`.
 
+---
 
 ## Access the App
-Open your browser and navigate to `http://localhost:5000`.
+Open your browser and navigate to `http://localhost:5000` or `http://vps-ip:5000`.
+
+---
 
 ## Using the App
 **1. Get Roasted:**
