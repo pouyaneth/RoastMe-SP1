@@ -138,7 +138,7 @@ python app.py
 
 ---
 
-## 9) Start the Node.js Backend
+## 9) Start Proof Generator (Backend)
 Open a new terminal, and launch the Node.js backend:
 ```bash
 cd ~/RoastMe-SP1/backend
@@ -163,3 +163,13 @@ Open your browser and navigate to `http://localhost:5000`.
   - The proof confirms your name was processed (roasted) without revealing the roast content.
   - The proof result, including a hash, will appear below the roast.
   - The script generates and verifies the proof, saving it to `roast_proof.bin` in `RoastMe-SP1/roast-proof/script` directory
+
+---
+
+## Errors
+1- Cargo
+```
+SP1 output: 
+SP1 errors: /bin/sh: 1: cargo: not found
+```
+Enter `. "$HOME/.cargo/env"` before `9) Start Proof Generator (Backend)`
