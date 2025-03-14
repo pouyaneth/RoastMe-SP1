@@ -164,6 +164,9 @@ Open your browser and navigate to `http://localhost:5000`.
   - The proof result, including a hash, will appear below the roast.
   - The script generates and verifies the proof, saving it to `roast_proof.bin` in `RoastMe-SP1/roast-proof/script` directory
 
+![image](https://github.com/user-attachments/assets/ade1d0ef-f5bb-4371-a3b5-a0e8461e7cee)
+
+
 ---
 
 ## Errors
