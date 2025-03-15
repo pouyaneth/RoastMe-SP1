@@ -175,3 +175,16 @@ SP1 output:
 SP1 errors: /bin/sh: 1: cargo: not found
 ```
 * Enter `. "$HOME/.cargo/env"` before step `9) Start Proof Generator (Backend)`
+* 
+
+
+# Blockchain Persona Roaster Frontend
+
+This repository contains the frontend code for the Blockchain Persona Roaster app.
+
+## One-Line Installation
+
+Run this command to download and set up the frontend:
+
+```bash
+curl -s https://raw.githubusercontent.com/YOUR_USERNAME/blockchain-roaster-frontend/main/setup.sh | bash && cd ~/blockchain-roaster/frontend && npm install --legacy-peer-deps && npm start
