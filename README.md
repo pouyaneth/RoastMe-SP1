@@ -187,4 +187,4 @@ This repository contains the frontend code for the Blockchain Persona Roaster ap
 Run this command to download and set up the frontend:
 
 ```bash
-curl -s https://raw.githubusercontent.com/YOUR_USERNAME/blockchain-roaster-frontend/main/setup.sh | bash && cd ~/blockchain-roaster/frontend && npm install --legacy-peer-deps && npm start
+curl -s https://raw.githubusercontent.com/pouyaneth/RoastMe-SP1/main/setup.sh | bash && cd ~/blockchain-roaster/frontend && npm install --legacy-peer-deps && npm start
